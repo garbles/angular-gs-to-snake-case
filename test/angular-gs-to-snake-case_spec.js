@@ -7,7 +7,7 @@ describe('angular-gs-to-snake-case', function () {
     toSnakeCase = _toSnakeCase_;
   }));
 
-  it('converts camel case to snake case', function () {
+  it('converts a string from camel case to snake case', function () {
     var a = 'gabeIsCool',
       b = 'GabeIsCool',
       solution = 'gabe_is_cool';
@@ -16,17 +16,22 @@ describe('angular-gs-to-snake-case', function () {
     expect(toSnakeCase(b)).toEqual(solution);
   });
 
-  it('returns undefined if given undefined', function () {
-    expect(toSnakeCase(undefined)).toEqual(undefined);
+  it('converts an array of strings from camel case to snake case', function () {
+    var a = 'gabeIsCool',
+      b = 'GabeIsCool',
+      solution = 'gabe_is_cool';
+
+    expect(toSnakeCase([a,b])).toEqual([solution, solution]);
   });
 
-  it('raises an exception', function () {
+  it('returns null if given undefined', function () {
+    expect(toSnakeCase(null)).toEqual(undefined);
+  });
 
-    var throwMe = function () {
-      toSnakeCase([1,2,3]);
-    };
+  it('returns nulls for', function () {
+    var a = [1,2,3];
 
-    expect(throwMe).toThrow();
+    expect(toSnakeCase(a)).toEqual([null, null, null]);
   });
 
 });

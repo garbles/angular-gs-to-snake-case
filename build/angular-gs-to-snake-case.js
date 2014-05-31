@@ -4,13 +4,22 @@
 
 angular.module('gs.to-snake-case', [])
 .service('toSnakeCase', function () {
-  return function (str) {
-    if (!angular.isDefined(str)) {
-      return str;
+  function convert (str) {
+    if (angular.isString(str)) {
+      var newStr = str[0].toLowerCase() + str.slice(1);
+      return newStr.replace(/([A-Z])/g, function($1){return '_'+$1.toLowerCase();});
+    } else if (angular.isArray(str)) {
+      var array = [];
+      angular.forEach(str, function (i) {
+        array.push(convert(i));
+      });
+      return array;
+    } else {
+      return null;
     }
-    var newStr = str[0].toLowerCase() + str.slice(1);
-    return newStr.replace(/([A-Z])/g, function($1){return '_'+$1.toLowerCase();});
-  };
+  }
+
+  return convert;
 });
 
 })(window, window.angular);

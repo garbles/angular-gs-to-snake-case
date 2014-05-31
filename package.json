@@ -1,6 +1,6 @@
 {
   "name": "angular-gs-to-snake-case",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Converts camelCase to snake_case. http://jamesroberts.name/blog/2010/02/22/string-functions-for-javascript-trim-to-camel-case-to-dashed-and-to-underscore/comment-page-1/",
   "main": "./build/angular-gs-to-snake-case.js",
