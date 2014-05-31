@@ -15,3 +15,9 @@ Include the package in your application:
 ```javascript
 angular.module('app', ['gs.to-snake-case']);
 ```
+
+Use it to convert camelCase to snake_case:
+
+```javascript
+toSnakeCase('gabeIsCool'); // => 'gabe_is_cool'
+```
